@@ -1,0 +1,48 @@
+2007-06-28 09:29:24.201: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 277, msg: aio socket port is initialized
+2007-06-28 09:29:24.201: info: file: \terimber\terimber2.0\src\aiogate\aiogate.cpp, line: 122, msg: aio gate is initialized
+2007-06-28 09:29:41.135: info: Service started
+2007-06-28 19:33:24.872: info: file: \terimber\terimber2.0\src\daemon\daemon.cpp, line: 560, msg: config file detected at the location:
+2007-06-28 19:33:25.022: info: file: \terimber\terimber2.0\src\daemon\daemon.cpp, line: 561, msg: c:\terimber\terimber2.0\output_vc7\debug\cache.cfg
+2007-06-28 19:34:35.684: info: file: \terimber\terimber2.0\src\daemon\daemon.cpp, line: 560, msg: config file detected at the location:
+2007-06-28 19:34:35.844: info: file: \terimber\terimber2.0\src\daemon\daemon.cpp, line: 561, msg: c:\terimber\terimber2.0\output_vc7\debug\cache.cfg
+2007-06-28 19:34:47.671: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 277, msg: aio socket port is initialized
+2007-06-28 19:34:47.671: info: file: \terimber\terimber2.0\src\aiogate\aiogate.cpp, line: 122, msg: aio gate is initialized
+2007-06-29 09:47:52.798: info: file: \terimber\terimber2.0\src\daemon\daemon.cpp, line: 561, msg: config file detected at the location:
+2007-06-29 09:47:52.798: info: file: \terimber\terimber2.0\src\daemon\daemon.cpp, line: 562, msg: c:\terimber\terimber2.0\output_vc7\debug\cache.cfg
+2007-06-29 09:47:53.850: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 208, msg: starting aiosock...
+2007-06-29 09:47:53.850: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 217, msg: start thread pool
+2007-06-29 09:47:53.850: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 245, msg: init Windows Completion Port
+2007-06-29 09:47:53.850: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 253, msg: init Terimber Completion Port
+2007-06-29 09:47:53.860: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 269, msg: borrow windows completion thread from pool
+2007-06-29 09:47:53.860: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 275, msg: borrow terimber completion thread from pool
+2007-06-29 09:47:53.860: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 281, msg: borrow working thread from pool
+2007-06-29 09:47:53.860: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 285, msg: start initiation thread from pool
+2007-06-29 09:47:53.860: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 292, msg: aio socket port is initialized
+2007-06-29 09:47:53.860: info: file: \terimber\terimber2.0\src\aiogate\aiogate.cpp, line: 126, msg: aio gate is initialized
+2007-06-29 09:49:03.140: info: file: \terimber\terimber2.0\src\daemon\daemon.cpp, line: 561, msg: config file detected at the location:
+2007-06-29 09:49:03.140: info: file: \terimber\terimber2.0\src\daemon\daemon.cpp, line: 562, msg: c:\terimber\terimber2.0\output_vc7\debug\cache.cfg
+2007-06-29 09:49:03.991: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 208, msg: starting aiosock...
+2007-06-29 09:49:03.991: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 217, msg: start thread pool
+2007-06-29 09:49:03.991: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 253, msg: init Terimber Completion Port
+2007-06-29 09:49:03.991: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 275, msg: borrow terimber completion thread from pool
+2007-06-29 09:49:04.001: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 281, msg: borrow working thread from pool
+2007-06-29 09:49:04.001: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 285, msg: start initiation thread from pool
+2007-06-29 09:49:04.001: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 292, msg: aio socket port is initialized
+2007-06-29 09:49:04.001: info: file: \terimber\terimber2.0\src\aiogate\aiogate.cpp, line: 126, msg: aio gate is initialized
+2007-06-29 09:49:27.815: info: Service started
+2007-06-29 10:53:39.604: info: file: \terimber\terimber2.0\src\daemon\daemon.cpp, line: 563, msg: config file detected at the location:
+2007-06-29 10:53:39.604: info: file: \terimber\terimber2.0\src\daemon\daemon.cpp, line: 564, msg: c:\terimber\terimber2.0\output_vc7\debug\cache.cfg
+2007-06-29 10:53:40.865: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 208, msg: starting aiosock...
+2007-06-29 10:53:40.865: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 217, msg: start thread pool
+2007-06-29 10:53:40.865: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 253, msg: init Terimber Completion Port
+2007-06-29 10:53:40.865: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 275, msg: borrow terimber completion thread from pool
+2007-06-29 10:53:40.865: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 281, msg: borrow working thread from pool
+2007-06-29 10:53:40.876: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 285, msg: start initiation thread from pool
+2007-06-29 10:53:40.876: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 292, msg: aio socket port is initialized
+2007-06-29 10:53:40.876: info: file: \terimber\terimber2.0\src\aiogate\aiogate.cpp, line: 126, msg: aio gate is initialized
+2007-07-02 23:13:56.254: info: file: \terimber\terimber2.0\src\daemon\daemon.cpp, line: 558, msg: config file detected at the location:
+2007-07-02 23:13:56.294: info: file: \terimber\terimber2.0\src\daemon\daemon.cpp, line: 559, msg: c:\terimber\terimber2.0\output_vc7\debug\cache.cfg
+2007-07-02 23:13:56.314: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 208, msg: starting aiosock...
+2007-07-02 23:13:56.314: info: file: \terimber\terimber2.0\src\aiosock\aiosock.cpp, line: 289, msg: aio socket port is initialized
+2007-07-02 23:13:56.314: info: file: \terimber\terimber2.0\src\aiogate\aiogate.cpp, line: 126, msg: aio gate is initialized
+2007-07-02 23:13:56.545: info: Service started

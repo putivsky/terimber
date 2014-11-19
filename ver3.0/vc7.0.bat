@@ -1,0 +1,2 @@
+call "c:\Program Files\Microsoft Visual Studio .Net 2003\Common7\IDE\devenv.com" /rebuild Release terimber3_0_vc70.sln
+call "c:\Program Files\Microsoft Visual Studio .Net 2003\Common7\IDE\devenv.com" /rebuild Debug terimber3_0_vc70.sln

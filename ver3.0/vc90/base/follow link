@@ -1,0 +1,275 @@
+/*
+ * The Software License
+ * =================================================================================
+ * Copyright (c) 2003-2007 The Terimber Corporation. All rights reserved.
+ * =================================================================================
+ * Redistributions of source code must retain the above copyright notice, 
+ * this list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice, 
+ * this list of conditions and the following disclaimer in the documentation 
+ * and/or other materials provided with the distribution.
+ * The end-user documentation included with the redistribution, if any, 
+ * must include the following acknowledgment:
+ * "This product includes software developed by the Terimber Corporation."
+ * =================================================================================
+ * THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES, 
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY 
+ * AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  
+ * IN NO EVENT SHALL THE TERIMBER CORPORATION OR ITS CONTRIBUTORS BE LIABLE FOR 
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES 
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON 
+ * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * ================================================================================
+*/
+
+#ifndef _terimber_list_h_
+#define _terimber_list_h_
+
+#include "memory.h"
+
+BEGIN_TERIMBER_NAMESPACE
+#pragma pack(4)
+
+template < class T >
+class base_list
+{
+	// copy constructor
+	base_list< T >(const base_list< T >& src);
+
+public:
+	// forward declaration
+	struct _node;
+	// internal help struct for head node
+	struct _node_
+	{
+		_node_() : _next(0), _prev(0) {}
+
+		_node*	_next; // pointer to the next _node
+		_node*	_prev; // pointer to the prev _node
+	};
+
+	struct _node : _node_
+	{
+		_node(const T& x) : _node_(), _value(x) {}
+		T		_value; // object instance stored in list, must support copy constructor
+	};
+
+protected:
+
+	// constructor
+	inline base_list< T >();
+	// destructor
+	inline ~base_list< T >();
+
+public:
+	// check empty, use instead of size
+	inline bool empty() const;
+	// finction doesn't check bounders
+	inline const T& front() const;
+	// finction doesn't check bounders
+	inline T& front();
+	// finction doesn't check bounders
+	inline const T& back() const;
+	// finction doesn't check bounders
+	inline T& back();
+
+////////////////
+	// there are iterator definitions
+	class iterator;
+	// most of STL algorithms are supported
+	class const_iterator
+	{
+	public:
+		typedef std::bidirectional_iterator_tag iterator_category;
+		typedef size_t size_type;
+		typedef T* pointer;
+		typedef const T* const_pointer;
+		typedef T& reference;
+		typedef const T& const_reference;
+		typedef T value_type;
+		typedef size_t difference_type;
+
+		inline const_iterator(_node* p) : _ptr(p) {}
+		inline const_iterator(const iterator& x) : _ptr(x._ptr) {}
+		inline const T& operator*() const { return _ptr->_value; }
+		inline const T* operator->() const { return &(_ptr->_value); }
+		inline const_iterator operator++() { _ptr = _ptr->_next; return *this; }
+		inline const_iterator operator++(int) { const_iterator tmp = _ptr; _ptr = _ptr->_next; return tmp; }
+		inline const_iterator operator--() { _ptr = _ptr->_prev; return *this; }
+		inline const_iterator operator--(int) { const_iterator tmp = _ptr; _ptr = _ptr->_prev; return tmp; }
+		inline bool operator==(const const_iterator& x) const { return _ptr == x._ptr; }
+		inline bool operator!=(const const_iterator& x) const { return _ptr != x._ptr; }
+		inline _node* next() const { return _ptr->_next; }
+		inline _node* prev() const { return _ptr->_prev; }
+		inline _node* node() const { return _ptr; }
+	protected:
+		_node *_ptr;
+	}; 
+ 
+	class iterator : public const_iterator 
+	{
+	public:
+		inline iterator(_node* p) : const_iterator(p) {}
+		inline T& operator*() const	{ return this->_ptr->_value; }
+		inline T* operator->() const { return &(this->_ptr->_value); }
+		inline iterator operator++() { this->_ptr = this->_ptr->_next; return *this; }
+		inline iterator operator++(int) { iterator tmp = this->_ptr; this->_ptr = this->_ptr->_next; return tmp; }
+		inline iterator operator--() { this->_ptr = this->_ptr->_prev; return *this; }
+		inline iterator operator--(int) { iterator tmp = this->_ptr; this->_ptr = this->_ptr->_prev; return tmp; }
+		inline bool operator==(const iterator& x) const { return this->_ptr == x._ptr; }
+		inline bool operator!=(const iterator& x) const { return this->_ptr != x._ptr; }
+	};
+
+	inline TYPENAME base_list< T >::const_iterator begin() const;
+	inline TYPENAME base_list< T >::iterator begin();
+	inline TYPENAME base_list< T >::const_iterator end() const;
+	inline TYPENAME base_list< T >::iterator end();
+
+	inline void clear();
+protected:
+
+	inline TYPENAME base_list< T >::_node* head();
+	inline TYPENAME base_list< T >::_node* head() const;
+	TYPENAME base_list< T >::_node_ _head; // store only head of list
+};
+
+/////////////////////////////////////////////////
+// class list uses our allocator class
+// for ALL internal memory allocations
+// only 4 byte size for empty list object
+// only forward and backward iterators are supported
+
+template < class T, class A = byte_allocator >
+class _list : public base_list< T >
+{
+public:
+	// constructor
+	inline _list< T, A >();
+	// destructor
+	inline ~_list< T, A >();
+	// copy constructor
+	inline _list< T, A >(const _list< T, A >& src);
+	// copy only pointers to head and elements
+	// NO memory reallocation or copy
+	inline _list< T, A >& operator=(const _list< T, A >& src);
+	inline void assign(A& allocator_, const _list< T, A >& src);
+	inline void assign(A& allocator_, TYPENAME _list< T, A >::const_iterator first, TYPENAME _list< T, A >::const_iterator last);
+	inline void assign(A& allocator_, size_t n, const T& x = T());
+	// expensive operation
+	inline size_t size() const;
+	// insert new object to the end of list
+	inline T& push_back(A& allocator_, const T& x);
+	// insert new object to the front of list
+	inline T& push_front(A& allocator_, const T& x);
+	// remove first element from list
+	// no memory deallocation
+	inline bool pop_front();
+	inline bool pop_front(node_allocator< TYPENAME base_list< T >::_node >& allocator_);
+	// remove last element from list
+	// no memory deallocation
+	inline bool pop_back();
+	inline bool pop_back(node_allocator< TYPENAME base_list< T >::_node >& allocator_);
+
+	inline TYPENAME _list< T, A >::iterator insert(A& allocator_, TYPENAME _list< T, A >::iterator it, const T& x = T());
+    inline void insert(A& allocator_, TYPENAME _list< T, A >::iterator it, size_t n, const T& x);
+    inline void insert(A& allocator_, TYPENAME _list< T, A >::iterator it, TYPENAME _list< T, A >::const_iterator first, TYPENAME _list< T, A >::const_iterator last);
+	
+	// remove the specified element of list
+	// must be defined compare operator for stored object
+	inline void remove(const T& x);
+	inline void remove(node_allocator< TYPENAME base_list< T >::_node >& allocator_, const T& x);
+
+	// clear list
+	// no memory deallocation
+	inline TYPENAME _list< T, A >::iterator erase(TYPENAME _list< T, A >::iterator iter);
+	inline TYPENAME _list< T, A >::iterator erase(node_allocator< TYPENAME base_list< T >::_node >& allocator_, TYPENAME _list< T, A >::iterator iter);
+
+	inline TYPENAME _list< T, A >::iterator erase(TYPENAME _list< T, A >::iterator first, TYPENAME _list< T, A >::iterator last);
+	inline TYPENAME _list< T, A >::iterator erase(node_allocator< TYPENAME base_list< T >::_node >& allocator_, TYPENAME _list< T, A >::iterator first, TYPENAME _list< T, A >::iterator last);
+private:
+	inline TYPENAME _list< T, A >::iterator remove(TYPENAME _list< T, A >::iterator iter);
+	inline TYPENAME _list< T, A >::iterator remove(node_allocator< TYPENAME base_list< T >::_node >& allocator_, TYPENAME _list< T, A >::iterator iter);
+
+	inline TYPENAME _list< T, A >::_node* _buynode(byte_allocator& allocator_, const T& x);
+	inline TYPENAME _list< T, A >::_node* _buynode(node_allocator< TYPENAME base_list< T >::_node >& allocator_, const T& x);
+	inline void _freenode(node_allocator< TYPENAME base_list< T >::_node >& allocator_, TYPENAME _list< T, A >::_node* p);
+};
+
+/////////////////////////////////////////////////
+// class list uses our allocator class
+// for ALL internal memory allocations
+// forward and backward iterators are supported
+template < class T >
+class list : public base_list< T >
+{
+public:
+	// constructor
+	list< T >(size_t size = os_def_size);
+	// destructor
+	~list< T >();
+	// copy constructor
+	list< T >(const list< T >& src);
+	// copy all objects
+	list< T >& operator=(const list< T >& src);
+	// clear list
+	// call destructors of objects
+	inline void clear();
+	// assign new list calling copy constructors
+	inline void assign(const list< T >& src);
+	// assign new list (from : to) calling copy constructors
+	inline void assign(TYPENAME  list< T >::const_iterator first, TYPENAME list< T >::const_iterator last);
+	// assign new list (n elements) calling copy constructor
+	inline void assign(size_t n, const T& x = T());
+	// return size of list
+	inline size_t size() const;
+	// insert new object to the end of list
+	inline T& push_back(const T& x);
+	// insert new object to the front of list
+	inline T& push_front(const T& x);
+	// remove first element from list
+	// calling destructor
+	inline bool pop_front();
+	// remove last element from list
+	// calling destructor
+	inline bool pop_back();
+
+	// insert new element after specified iterator 
+	// calling copy constructor
+	TYPENAME list< T >::iterator insert(TYPENAME list< T >::iterator it, const T& x = T());
+	// assign n new elements after specified iterator 
+	// calling copy constructor
+    void insert(TYPENAME list< T >::iterator it, size_t n, const T& x);
+	// assign (from : to) new elements after specified iterator 
+	// calling copy constructor
+    void insert(TYPENAME list< T >::iterator it, TYPENAME list< T >::const_iterator first, TYPENAME list< T >::const_iterator last);
+	// remove the specified element of list
+	// must be defined compare operator for stored object
+	inline void remove(const T& x);
+	// remove specified element
+	// calling destructors
+	// return the next iterator
+	inline TYPENAME list< T >::iterator erase(TYPENAME list< T >::iterator iter);
+	// remove specified elements (from : to)
+	// calling destructors
+	// return the next iterator
+	inline TYPENAME list< T >::iterator erase(TYPENAME list< T >::iterator first, TYPENAME list< T >::iterator last);
+private:
+	// remove the specified iterator
+	inline TYPENAME list< T >::iterator remove(TYPENAME list< T >::iterator iter);
+protected:
+	// allocate memory for new node and call copy constructor for element
+	inline TYPENAME list< T >::_node* _buynode(const T& x);
+	// deallocate memory calling destructor for element
+	inline void _freenode(TYPENAME list< T >::_node* p);
+protected:
+	size_t					_length; // keeps the length of list
+	node_allocator< TYPENAME base_list< T >::_node > _allocator; // internal allocator
+};
+
+END_TERIMBER_NAMESPACE
+
+#endif // _terimber_list_h_
+

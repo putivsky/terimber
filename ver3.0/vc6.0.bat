@@ -1,0 +1,1 @@
+"C:\Program Files\Microsoft Visual Studio\COMMON\MSDev98\Bin\msdev" /make ALL /rebuild terimber3_0_vc60.dsw

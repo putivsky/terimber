@@ -1,0 +1,410 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "aiocomport"=.\vc60\aiocomport\aiocomport.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "aiofile"=.\vc60\aiofile\aiofile.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "aiogate"=.\vc60\aiogate\aiogate.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "aiomsg"=.\vc60\aiomsg\aiomsg.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "aiosock"=.\vc60\aiosock\aiosock.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "alg"=.\vc60\alg\alg.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "base"=.\vc60\base\base.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "cache"=.\vc60\cache\cache.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name base
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name daemon
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name fuzzy
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name smart
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name tokenizer
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name xml
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name aiocomport
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name aiofile
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name aiogate
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name aiomsg
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name aiosock
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name alg
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name crypt
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name db
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name dbmysql
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name dbodbc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name dborcl
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name memdb
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name pcre
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name threadpool
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "crypt"=.\vc60\crypt\crypt.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name math
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "daemon"=.\vc60\daemon\daemon.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "db"=.\vc60\db\db.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "dbmysql"=.\vc60\dbmysql\dbmysql.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name db
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "dbodbc"=.\vc60\dbodbc\dbodbc.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name db
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "dborcl"=.\vc60\dborcl\dborcl.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "fuzzy"=.\vc60\fuzzy\fuzzy.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "memdb"=.\VC60\memdb\memdb.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "pcre"=.\vc60\pcre\pcre.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "smart"=.\vc60\smart\smart.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "threadpool"=.\vc60\threadpool\threadpool.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "tokenizer"=.\VC60\tokenizer\tokenizer.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "winlintest"=.\vc60\winlintest\winlintest.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name base
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name aiocomport
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name aiofile
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name aiogate
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name aiomsg
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name aiosock
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name alg
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name crypt
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name daemon
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name db
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name dbmysql
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name dbodbc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name dborcl
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name fuzzy
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name memdb
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name pcre
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name smart
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name threadpool
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name tokenizer
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name xml
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "xml"=.\vc60\xml\xml.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

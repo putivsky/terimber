@@ -1,0 +1,2 @@
+call "c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\devenv.com" /rebuild Release terimber3_0_vc80.sln
+call "c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\devenv.com" /rebuild Debug terimber3_0_vc80.sln
